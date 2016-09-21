@@ -105,7 +105,6 @@ class InviterGui(QtGui.QMainWindow):
         except:
             self.update_status("!You haven't set the path !")
 
-
     # Count events
     def count_thr(self):
         self.count_th += 1
@@ -185,7 +184,8 @@ class InviterGui(QtGui.QMainWindow):
             json.dump(self.config, f, sort_keys=True, indent=4, separators=(',', ': '))
         f.close()
 
-#Threading class
+
+# Threading class
 class Work(QThread):  # multithread
     def __init__(self, parent=None):
         super(Work, self).__init__(parent)
