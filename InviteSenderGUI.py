@@ -19,7 +19,7 @@ import createPDF
 import random
 
 # import mailsend2gmail
-import send2mail
+from send2mail import sendMail
 
 # Import json for reading config
 import json
@@ -213,9 +213,9 @@ class Work(QThread):  # multithread
             createPDF.createPDF(logo, event, date, location, series, unumber, file)
             self.emit(SIGNAL("threadDone(QString)"), "Sending to mail "+send_to)
             self.emit(SIGNAL("count"))
-            p = send2mail.sendMail(server, port, user, passwd,
-                                   send_to, subject, str(body),
-                                   True, file)
+            p = sendMail(server, port, user, passwd,
+                         send_to, subject, str(body),
+                         file)
             self.emit(SIGNAL("threadDone(QString)"), p)
             self.emit(SIGNAL("count"))
             return p
