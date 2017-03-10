@@ -11,7 +11,7 @@ import email.mime.application
 
 
 # Function send mail
-def sendMail(server, port, sfrom, password, sto, subject, body, attachment, filepath):
+def sendMail(server, port, sfrom, password, sto, subject, body, filepath):
     # Create a text/plain message
     msg = email.mime.Multipart.MIMEMultipart()
     msg['Subject'] = subject
@@ -22,7 +22,7 @@ def sendMail(server, port, sfrom, password, sto, subject, body, attachment, file
     msg.attach(email.mime.Text.MIMEText(body))
 
     # PDF attachment
-    if attachment:
+    if filepath:
         path, filename = os.path.split(filepath)
         fp = open(os.path.join(path, filename), 'rb')
         att = email.mime.application.MIMEApplication(fp.read(), _subtype="pdf")
