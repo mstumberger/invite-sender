@@ -23,8 +23,11 @@ from send2mail import sendMail
 
 # Import json for reading config
 import json
-
 import base64
+
+# TODO
+# - pdf logo location
+# - add promoters
 
 
 # Main program
